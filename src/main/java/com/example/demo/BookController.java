@@ -6,6 +6,7 @@ import com.example.demo.google.BookService;
 import com.example.demo.google.GoogleBook;
 import com.example.demo.google.GoogleBookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,6 +38,7 @@ public class BookController {
     }
 
     @PostMapping("/books/{googleId}")
+    @ResponseStatus(HttpStatus.CREATED)
     public Book addBookFromGoogle(@PathVariable String googleId) {
         return bookService.addBookFromGoogle(googleId);
     }
